@@ -1,0 +1,75 @@
+model:
+  default: Qwen3.6-35B-A3B-4bit
+  max_tokens: 32768
+  provider: omlx
+  base_url: http://127.0.0.1:8000/v1
+  context_length: 65274
+providers:
+  omlx:
+    api_key: "${GITHUB_TOKEN}"
+    api_mode: chat_completions
+    base_url: http://127.0.0.1:8000/v1
+    default_model: Qwen3.6-35B-A3B-4bit
+    name: oMLX
+toolsets:
+  - hermes-cli
+  - web
+agent:
+  max_turns: 60
+  service_tier: normal
+  reasoning_effort: medium
+  verbose: false
+terminal:
+  backend: local
+  cwd: .
+  timeout: 180
+  home_mode: auto
+  container_cpu: 1
+  container_memory: 5120
+  container_disk: 51200
+  container_persistent: true
+browser:
+  inactivity_timeout: 120
+file_read_max_chars: 5000
+tool_output:
+  max_lines: 3000
+  max_line_length: 3000
+tool_loop_guardrails:
+  warnings_enabled: true
+  hard_stop_enabled: false
+  warn_after:
+    exact_failure: 2
+    same_tool_failure: 3
+    idempotent_no_progress: 2
+  hard_stop_after:
+    exact_failure: 5
+    same_tool_failure: 8
+    idempotent_no_progress: 5
+  protect_first_n: 3
+  protect_last_n: 20
+  target_ratio: 0.3
+  threshold: 0.6
+compression:
+  enabled: true
+  threshold: 0.55
+  target_ratio: 0.3
+  protect_last_n: 20
+  protect_first_n: 4
+prompt_caching:
+  cache_ttl: 5m
+display:
+  compact: false
+  busy_input_mode: interrupt
+  bell_on_complete: false
+  show_reasoning: false
+  streaming: true
+  language: en
+memory:
+  memory_enabled: true
+  user_profile_enabled: true
+  max_chars: 2500
+  user_max_chars: 800
+  flush_min_turns: 6
+delegation:
+  max_iterations: 30
+  max_spawn_depth: 1

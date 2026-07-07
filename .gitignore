@@ -1,0 +1,10 @@
+# Hermes Agent Project
+
+- **hermes-agent** - Desktop CLI application
+- **pyproject.toml** - Project configuration
+- **pyproject.toml** - Dependency definitions
+- **tools/** - Tool scripts and utilities
+- **skills/** - Reusable workflow skills
+- **cron/** - Scheduled cron job configurations
+- **memories/** - Session memory files
+- **assets/** - Assets like templates, scripts, etc.
