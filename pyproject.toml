@@ -13,6 +13,7 @@ dependencies = [
     "rich>=13.9.0",
     "pyperclip>=1.11.0",
     "python-dotenv>=1.0.0",
+    "pyyaml>=6.0",
     "prompt_toolkit>=3.0.45",
     "loguru>=0.6.0",
     "click>=8.1.7",

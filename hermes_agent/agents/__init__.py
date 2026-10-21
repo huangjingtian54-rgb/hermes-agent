@@ -2,6 +2,8 @@
 Agent module for Hermes Agent.
 """
 
+from __future__ import annotations
+
 from typing import Dict, List, Optional, Any, Callable
 from dataclasses import dataclass, field
 from enum import Enum
