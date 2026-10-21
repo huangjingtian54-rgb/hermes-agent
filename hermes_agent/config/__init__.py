@@ -16,7 +16,7 @@ class Config:
     
     def __init__(self, config_path: Optional[str] = None):
         """Initialize configuration from file or default."""
-        self.config_path = config_path or Path.home() / ".hermes" / "config.yaml"
+        self.config_path = Path(config_path) if config_path else Path.home() / ".hermes" / "config.yaml"
         self._config: Dict[str, Any] = {}
         self._load()
     
@@ -27,7 +27,8 @@ class Config:
             return
         
         with open(self.config_path, 'r') as f:
-            self._config = yaml.safe_load(f)
+            loaded = yaml.safe_load(f)
+        self._config = loaded if isinstance(loaded, dict) else self._default_config()
     
     def _default_config(self) -> Dict[str, Any]:
         """Return default configuration."""
